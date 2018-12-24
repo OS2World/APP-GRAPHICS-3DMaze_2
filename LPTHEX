@@ -1,0 +1,39 @@
+# IBM Developer's Workframe/2 Make File Creation run at 18:25:59 on 08/31/92
+
+# Make File Creation run in directory:
+#   D:\USER\OS2\LPTHEX;
+
+.SUFFIXES:
+
+.SUFFIXES: .c .rc .ipf
+
+ALL: LPTHEX.EXE \
+     LPTHEX.HLP \
+     LPTHEX.RES
+
+lpthex.exe:  \
+  lpthex.OBJ \
+  LPTHEX.RES \
+  lpthex.def \
+  LPTHEX
+   @REM @<<LPTHEX.@0
+     /ST:500000 /PM:PM +
+     lpthex.OBJ
+     lpthex.exe
+     
+     
+     lpthex.def;
+<<
+   LINK386.EXE @LPTHEX.@0
+   RC LPTHEX.RES lpthex.exe
+
+{.}.rc.res:
+   RC -r .\$*.RC
+
+{.}.ipf.hlp:
+   IPFC .\$*.IPF
+
+{.}.c.obj:
+   ICC.EXE /Sp1 /Kf /Folpthex.obj /Gm /Gs- /Felpthex.exe .\$*.c
+
+!include LPTHEX.DEP

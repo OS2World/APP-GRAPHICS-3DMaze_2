@@ -1,0 +1,31 @@
+# IBM Developer's Workframe/2 Make File Creation run at 18:25:59 on 08/31/92
+
+# Make File Creation run in directory:
+#   D:\USER\OS2\LPTHEX;
+
+# Assumed INCLUDE environment variable path:
+#   D:\TOOLKT20\C\OS2H;
+#   D:\TOOLKT20\ASM\OS2INC;
+#   D:\IBMC\INCLUDE;
+
+
+LPTHEX.RES:  LPTHEX.RC  \
+#  {.;$(INCLUDE)}OS2.H  \
+   {.;$(INCLUDE)}LPTHEX.H  \
+   LPTHEX.ICO  \
+   LPTHEX.H  \
+   LPTHEX
+
+LPTHEX.HLP:  LPTHEX.IPF  \
+   LPTHEX
+
+lpthex.OBJ:  lpthex.c  \
+#  {$(INCLUDE);}stdio.h  \
+#  {$(INCLUDE);}os2.h  \
+#  {$(INCLUDE);}stdlib.h  \
+#  {$(INCLUDE);}malloc.h  \
+#  {$(INCLUDE);}math.h  \
+#  {$(INCLUDE);}string.h  \
+#  {$(INCLUDE);}memory.h  \
+   {.;$(INCLUDE);}lpthex.h  \
+   LPTHEX

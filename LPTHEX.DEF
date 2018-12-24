@@ -1,0 +1,16 @@
+NAME    LPTHEX    WINDOWAPI
+
+DESCRIPTION 'Written by James L. Dean  06/27/92'
+
+STUB    'OS2STUB.EXE'
+
+CODE    MOVEABLE
+DATA    MOVEABLE MULTIPLE
+
+HEAPSIZE  8192
+STACKSIZE 500000
+
+EXPORTS
+    client_window_proc
+    printer_setup
+
